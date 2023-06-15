@@ -20,6 +20,13 @@ class UserManager(models.Manager):
             errors['emaill'] = "Email Already Used!"
         return errors
 
+
+class Company(models.Model):
+    name = models.CharField(max_length=45)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -27,13 +34,22 @@ class User(models.Model):
     password = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    company = models.ForeignKey(Company, related_name="item", on_delete = models.CASCADE)
     objects = UserManager()
+
+
+
+def show_companies():
+    return Company.objects.all()
+
+
+
+
 
 def register(request):
     password = request.POST['password']
     pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-    User.objects.create(first_name = request.POST['fname'] ,last_name = request.POST['lname'] , email = request.POST['email'] , 
-                        password= pw_hash )
+    User.objects.create(first_name = request.POST['fname'] ,last_name = request.POST['lname'] , email = request.POST['email'] , password= pw_hash,company_id = request.POST['company'] )
     
 
 def login(request):
@@ -43,3 +59,4 @@ def login(request):
     
     if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
         request.sessuion['userid'] = logged_user.id
+
