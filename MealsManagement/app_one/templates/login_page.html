@@ -4,19 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .logo{
+            height: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('{% static "imgs/loginbackground.png" %}');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #444;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            background-color: #ff7300;
+            border: none;
+            flex: 1;
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .create-account a {
+            color: #ff7300;
+        }
+    </style>
 </head>
 <body>
+    <img class="logo" src='{% static "imgs/logo.png" %}' alt="logo">
     <div class="right_div">
-        <h1>Login</h1>
-        <form action="/login" method="post">
+        <form class="text-center" action="/login" method="post">
             {% csrf_token %}
-            <p>Email</p>
-            <input type="email" name="person_email">
-            <p>Password</p>
-            <input type="password" name="password_email">
-
-            <button type="submit">Log in</button>
+            <div class="form-group">
+                <label for="person_email">Email</label>
+                <input type="email" class="form-control" name="person_email" id="person_email">
+            </div>
+            <div class="form-group">
+                <label for="password_email">Password</label>
+                <input type="password" class="form-control" name="password_email" id="password_email">
+            </div>
+            <button type="submit" class="btn btn-primary">Log in</button>
         </form>
+        <div class="create-account">
+            <p>Don't have an account? <a href="/register_page">Create one</a></p>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
