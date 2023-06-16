@@ -1,0 +1,39 @@
+body{
+    background-color: brown;
+background-image: url('imgs//loginbackground.png');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+
+.login-btn{
+    background-color: #ff7300;
+    font-size: 33px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    border-radius: 40%;
+    width: 30%;
+    border: none;
+}
+
+.btns-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15%;
+}
+
+.container{
+    text-align: center;
+    padding: 5%;
+
+}
+img{
+    width: 50%;
+}
+a:link, a:valid, a:hover, a:active{
+    text-decoration: none;
+    color: white;
+}
