@@ -1,0 +1,112 @@
+.orderklogo {
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+body, html {
+    color: black;
+    height: 100%;
+    background-color: #444;
+    background-image: url('/static/imgs/loginbackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.orderklogo {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.text-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: transparent; 
+}
+
+.text-container p {
+    margin: 0;
+}
+
+.img-container {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.img-container img {
+    border-radius: 50%;
+    margin: 10px;
+    width: 130px;
+    height: 130px;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+.scroll-button {
+    position: absolute;
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(#444, #ff7300);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.scroll-button-prev {
+    left: 10px;
+}
+
+.scroll-button-next {
+    right: 10px;
+}
+
+.vote-button {
+    background: linear-gradient(#444, #ff7300);
+    border: none;
+    padding: 15px 30px;
+    font-size: x-largecd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100vw;
+    max-width: 100%;
+}
+
+.vote-button:hover {
+    background: linear-gradient(#555, #ff730076);
+}
+
+.vote-button:focus {
+    outline: none;
+}
