@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----Importing Bootstrap Files----->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Form Register</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav">
+                <a class="navbar-brand" href="#">
+                    <img class="logo" src='{% static "imgs/logo.png" %}' alt="logo">
+                </a>
+            </div>
+        </nav>
+        <div class="under">
+            <form class="form-signup" action="/login" method="post">
+                <div class="create">
+                    <h3 class="create">Create Account</h2>
+                </div>
+                    {% csrf_token %}
+                    <div class="fname">
+                        <p class="name">First-Name<input type="text"  id="fname" class="lfname"></p>
+                    </div>
+                    <div class="lname">
+                        <p>Last-Name <input type="text"  id="lname" class="llname"></p>
+                    </div>
+                    <div class="email">
+                        <p>Email <input type="email"  id="email" class="lemail"></p>
+                    </div>
+                    <div class="pass">
+                        <p>Password <input type="password" id="pass" class="lpass"></p>
+                    </div>
+                    <div class="conf-pass">
+                        <p>Conf-Password <input type="password" id="confpass" class="lcpass"></p>
+                    </div>
+                    <div class="comp">
+                        <p class="ur-company">Your-Company
+                            <select name="" id="" class="compa">
+                                <option value="">Axsos</option>
+                                <option value="">Harri</option>
+                                <option value="">Asal</option>
+                                <option value="">Jawal</option>
+                                <option value="">Exalt</option>
+                                <option value="">Freightos</option>
+                            </select></p>
+                    </div>
+                <button type="submit" class="btn btn-secondary">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
