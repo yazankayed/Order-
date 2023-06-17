@@ -3,6 +3,7 @@ from app_one.models import User
 from app_one.models import Company
 from django.db.models import Max
 
+
 class Restaurant(models.Model):
     name = models.CharField(max_length=45)
     location = models.CharField(max_length=45)

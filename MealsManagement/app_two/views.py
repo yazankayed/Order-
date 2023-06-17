@@ -12,10 +12,11 @@ def startvote(request):
         return redirect('/voting')
     else:
         context={
+            'show':models.show_all_company(),
             'show_all_resturants': models.show_all_resturants(),
             "logged_user" : models.get_specific_user(request),
         }
-        return render(request, 'vote_test.html',context)
+        return render(request, 'vote.html',context)
 
 def voting(request):
     request.session['startvote'] =1
