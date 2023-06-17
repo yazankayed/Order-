@@ -1,5 +1,7 @@
 from django.db import models
 from app_one.models import User
+from app_one.models import Company
+from django.db.models import Max
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=45)
@@ -28,5 +30,35 @@ class Item(models.Model):
     menue = models.ForeignKey(Menu, related_name="item", on_delete = models.CASCADE)
 
 
+
+def get_specific_user(request):
+    return User.objects.get(id=request.session['userid'])
+
+def show_all_resturants():
+    return Restaurant.objects.all()
+
+def show_specific_restaurant(ic):
+    return Restaurant.objects.get(id=ic)
+
+def show_specific_company(num):
+    return Company.objects.get(id=num)
+
+def show_all_company():
+    return Company.objects.all()
+
+def voting(request,ic):
+    rest_to_update=Restaurant.objects.get(id=request.POST['vote_id'])
+    rest_to_update.votes= rest_to_update.votes+1
+    rest_to_update.save()
+    cc=Restaurant.objects.get(id=request.POST['vote_id'])
+    user = User.objects.get(id=request.session['userid'])
+    user.liked_rest.add(cc)
+    return
+
+def get_the_winner_rest(request):
+    most_voted_restaurant = Restaurant.objects.aggregate(Max('votes'))
+    max_votes = most_voted_restaurant['votes__max']
+    most_voted_restaurants = Restaurant.objects.filter(votes=max_votes)
+    return most_voted_restaurants[0]
 
 
