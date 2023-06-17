@@ -13,19 +13,11 @@
         <img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo">
         <h1>Start voting for restaurants</h1>
         <div class="img-container">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
-            <img src="{% static '/imgs/placeholder.jpg' %}" alt="placeholder">
+            {% for i in show_all_resturants %}
+            <img src="{{i.rest_logo}}" alt="placeholder">
+            {% endfor %}
         </div>
-        <button class="vote-button">Vote</button>
+        <a href="/voting"> <button class="vote-button">Start Vote</button></a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -33,7 +33,7 @@ def submitvote(request,ic):
 def thewinner(request):
     del request.session['startvote']
     context={
-        'the_winner_rest': models.get_the_winner_rest(),
+        'the_winner_rest': models.get_the_winner_rest(request),
         "logged_user" : models.get_specific_user(request),
     }
     return render(request,'thewinner.html',context)
