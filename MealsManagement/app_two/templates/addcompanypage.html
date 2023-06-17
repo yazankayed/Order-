@@ -8,8 +8,9 @@
 <body>
     <form action="/addacompany" method="post">
         {% csrf_token %}
-        <input type="text" name="company_name">
-        <input type="text" name="logo_company">
+        <h3>Company Name: <input type="text" name="company_name"></h3>
+        <h3>Company Logo:<input type="text" name="logo_company"> </h3>
+        
         <button type="submit">Add a company</button>
     </form>
 </body>

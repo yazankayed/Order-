@@ -8,10 +8,10 @@
 <body>
     <form action="/addarest" method="post">
         {% csrf_token %}
-        <input type="text" name="rest_name">
-        <input type="text" name="rest_location">
-        <input type="text" name="rest_telephone">
-        <input type="text" name="logo_rest">
+        <h3>Restaurant name: <input type="text" name="rest_name"></h3>
+        <h3>Restaurant Location: <input type="text" name="rest_location"></h3>
+        <h3>Restaurant Telephone: <input type="text" name="rest_telephone"></h3>
+        <h3>Restaurant Logo: <input type="text" name="logo_rest"></h3>
         <button type="submit">Add a Restaurant</button>
     </form>
 </body>
