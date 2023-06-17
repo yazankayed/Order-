@@ -13,7 +13,7 @@ def register_page(request):
         "company_name" : models.show_companies(),
         
     }
-    return render(request,'register_page.html',context)
+    return render(request,'reg.html',context)
 
 def register(request):
     errors = User.objects.basic_validator(request.POST)
