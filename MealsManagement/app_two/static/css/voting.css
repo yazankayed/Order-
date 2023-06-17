@@ -47,7 +47,3 @@ body, html {
 #chat-input{
     text-align: center;
 }
-.btn-danger:hover{
-    background-color: white;
-    width: 12%;
-}
