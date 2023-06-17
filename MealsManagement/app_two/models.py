@@ -7,11 +7,11 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=45)
     location = models.CharField(max_length=45)
     telephone_number = models.CharField(max_length=10)
-    votes = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     votes= models.IntegerField(default=0)
     users_who_voted= models.ManyToManyField(User, related_name="liked_rest")
+    rest_logo=models.CharField(max_length=45,default="nothing")
 
 
 class Menu(models.Model):
@@ -61,4 +61,9 @@ def get_the_winner_rest(request):
     most_voted_restaurants = Restaurant.objects.filter(votes=max_votes)
     return most_voted_restaurants[0]
 
+def add_a_company(request):
+    Company.objects.create(name=request.POST['company_name'],company_logo=request.POST['logo_company'])
+
+def add_a_rest(request):
+    Restaurant.objects.create(name=request.POST['rest_name'],location=request.POST['rest_location'],telephone_number=request.POST['rest_telephone'],rest_logo=request.POST['logo_rest'])
 

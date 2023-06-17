@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add A Rest</title>
+</head>
+<body>
+    <form action="/addarest" method="post">
+        {% csrf_token %}
+        <input type="text" name="rest_name">
+        <input type="text" name="rest_location">
+        <input type="text" name="rest_telephone">
+        <input type="text" name="logo_rest">
+        <button type="submit">Add a Restaurant</button>
+    </form>
+</body>
+</html>

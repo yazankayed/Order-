@@ -25,6 +25,7 @@ class Company(models.Model):
     name = models.CharField(max_length=45)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    company_logo=models.CharField(max_length=45,default="nothing")
 
 
 class User(models.Model):
