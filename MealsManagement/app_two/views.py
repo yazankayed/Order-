@@ -6,8 +6,9 @@ def home(request):
     return render(request,'home.html')
 
 def startvote(request):
-    canstartvote=request.session['startvote']
-    if canstartvote:
+    if 'userid' not in request.session:
+        return redirect('/')
+    if 'startvote' not in request.session:
         return redirect('/voting')
     else:
         context={
@@ -36,3 +37,24 @@ def thewinner(request):
         "logged_user" : models.get_specific_user(request),
     }
     return render(request,'thewinner.html',context)
+
+def testwinner(request):
+    context={
+        'the_winner_rest': models.get_the_winner_rest(),
+        "logged_user" : models.get_specific_user(request),
+    }
+    return render(request,'thewinner.html',context)
+
+def add_a_company(request):
+    return render (request,'addcompanypage.html')
+
+def addacompany(request):
+    models.add_a_company(request)
+    return redirect('/addacompanypage')
+
+def add_a_rest(request):
+    return render (request,'addarest.html')
+
+def addarest(request):
+    models.add_a_rest(request)
+    return redirect('/addarestpage')
