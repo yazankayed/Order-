@@ -23,18 +23,12 @@
             {%endfor%}
         </select></h4>
         <p>Password</p>
-        <input type="password" name="password">
+        <input type="password" >
         <p>Confirm Password</p>
         <input type="password" name="confirm_password">
         <button type="submit">Register</button>
     </form>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+    
 
 </div>
 </body>
