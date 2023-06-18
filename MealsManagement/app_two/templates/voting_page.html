@@ -31,20 +31,25 @@
         </div>
         <hr class="border border-danger border-2 opacity-50">
         <div style="display: flex; justify-content: space-evenly;">
-            
             {% for i in show_all_resturants %}
             <div>
-                <div class="img-mid">
+                <div style="margin-left: 20px; display: flex; justify-content: space-between; ">
+
                     <a href="/submitvote/{{i.id}}"><button type="button" class="btn btn-success">Vote</button><br></a>
+                </div>
+
+                <div class="img-mid">
                     <br>
                     <img src=' {{i.rest_logo}} ' alt="stones" class="stones">
                 </div>
-                <br>
-                <button class="btn btn-danger">Voted: <span class="b"> {{i.votes}} </span></button>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn btn-danger">Voted: <span class="b"> {{i.votes}} </span></button>
+                </div>
             </div>
-                {% endfor %} <!--conter for users voted-->
+            {% endfor %} <!--conter for users voted-->
         </div>
-        
+
         <div id="chat-messages">
             <!-- Chat messages will be dynamically added here -->
         </div>
@@ -68,7 +73,7 @@
 
 
 
-        
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -80,26 +85,26 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('form').on('submit', function(event) {
-        event.preventDefault();
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                event.preventDefault();
+            });
+            $('button').on('click', function () {
+                var button = $(this);
+                var url = button.attr('href');
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function (response) {
+                        $('#content').html(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            });
         });
-        $('button').on('click', function() {
-        var button = $(this);
-        var url = button.attr('href');
-        $.ajax({
-            url: url,
-            method: 'GET',
-            success: function(response) {
-            $('#content').html(response);
-            },
-            error: function(xhr, status, error) {
-            console.log(error);
-            }
-        });
-        });
-    });
     </script>
 </body>
 
