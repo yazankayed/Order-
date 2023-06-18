@@ -35,7 +35,13 @@
             <div>
                 <div style="margin-left: 20px; display: flex; justify-content: space-between; ">
 
+                    {% if logged_user in i.users_who_voted.all %}
+                    <br>
+                    <p>Already voted to that resturant</p>
+                    {% else %}
                     <a href="/submitvote/{{i.id}}"><button type="button" class="btn btn-success">Vote</button><br></a>
+                    {% endif %}
+
                 </div>
 
                 <div class="img-mid">
@@ -54,14 +60,14 @@
             <!-- Chat messages will be dynamically added here -->
         </div>
         <br>
-        <!-- <form action="/message" method="post" >
-            <input type="text" name="post_message">
-            <input type="hidden" name="catch_id" value="{{user.id}}">
-            <button type="submit">Add A Message</button>
-        </form> -->
+        <div style="background-color: brown; width: 778.22px;height: 300px;">
+            {% for message in msg %}
+            <p>{{message.message}}</p>
+            {% endfor %}
+        </div>
         <form action="/message" method="post">
             {% csrf_token %}
-            <textarea name="post_message" cols="100" rows="5"></textarea><br><br>
+            <textarea name="post_message" cols="100" rows="2"></textarea><br><br>
             
             <button type="submit">Post a message</button>
         </form>
