@@ -62,7 +62,9 @@
         <br>
         <div style="background-color: brown; width: 778.22px;height: 300px;">
             {% for message in msg %}
-            <p>{{message.message}}</p>
+            <p style="display: inline;"> {{message.user.first_name}} : </p>
+            <p style="display: inline;">{{message.message}}</p>
+            <br>
             {% endfor %}
         </div>
         <form action="/message" method="post">

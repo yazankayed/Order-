@@ -34,6 +34,23 @@
 
         <img class="img-res-winner" src='{{the_winner_rest.rest_logo}}' alt="res" style="width: 25%;"><br>
         <br>
+        <table>
+            <tr>
+              <th>Item Name</th>
+              <th>Category</th>
+              <th>Price</th>
+            </tr>
+            
+            
+            {% for i in the_winner_rest.menu.item.all %}
+            <tr>
+                <td> {{i.name}} </td>
+                <td> {{i.category}} </td>
+                
+             <td>{{i.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
         <div class="card" style="width: 20%; ">
             <h5 class="card-title">Submit by WhatsApp
                 <link rel="stylesheet"
