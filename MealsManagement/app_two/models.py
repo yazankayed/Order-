@@ -58,11 +58,7 @@ def voting(request,ic):
     user.liked_rest.add(cc)
 
 def get_the_winner_rest(request):
-    most_voted_restaurant = Restaurant.objects.aggregate(Max('votes'))
-    max_votes = most_voted_restaurant['votes__max']
-    most_voted_restaurants = Restaurant.objects.filter(votes=max_votes)
-    return most_voted_restaurants[0]
-
+    return Restaurant.objects.all().order_by('-votes')[0]
 def add_a_company(request):
     Company.objects.create(name=request.POST['company_name'],company_logo=request.POST['logo_company'])
 

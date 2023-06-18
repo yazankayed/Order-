@@ -25,6 +25,7 @@ def voting(request):
         "logged_user" : models.get_specific_user(request),
         "msg": models.show_msg()
     }
+    
     return render(request,'voting_page.html',context)
 
 def submitvote(request,ic):
@@ -42,19 +43,21 @@ def thewinner(request):
         return redirect('/startvote')
     else:
         del request.session['startvote']
+        context={
+            'the_winner_rest': models.get_the_winner_rest(request),
+            "logged_user" : models.get_specific_user(request),
+        }
+        x=models.get_the_winner_rest(request)
+        print(x)
         models.Restaurant.users_who_voted.through.objects.all().delete()
         msg=models.Message.objects.all()
-        rest = models.Restaurant.objects.all()
         for mseg in msg : 
             mseg.delete()
+        rest = models.Restaurant.objects.all()
         for res in rest : 
             res.votes=0
             res.save()
     # b.users_who_voted.aclear()
-        context={
-            'the_winner_rest': models.get_the_winner_rest(request)[0],
-            "logged_user" : models.get_specific_user(request),
-        }
         return render(request,'thewinner.html',context)
 
 

@@ -33,7 +33,7 @@ def login(request):
         if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
             request.session['userid'] = logged_user.id
             return redirect('/startvote')
-    return redirect('/login_page')
+    return redirect('/startvote')
 
 def logout(request):
     del request.session['userid']
