@@ -40,8 +40,10 @@ def thewinner(request):
     del request.session['startvote']
     # models.Restaurant.through.objects.all().delete()
     models.Restaurant.users_who_voted.through.objects.all().delete()
-    
+    msg=models.Message.objects.all()
     rest = models.Restaurant.objects.all()
+    for mseg in msg : 
+        mseg.delete()
     for res in rest : 
         res.votes=0
         res.save()
