@@ -11,6 +11,7 @@ def startvote(request):
     if 'startvote' in request.session:
         return redirect('/voting')
     else:
+        request.session['startvote'] = 1
         context={
             'show_all_resturants': models.show_all_resturants(),
             "logged_user" : models.get_specific_user(request),
@@ -38,7 +39,6 @@ def create_msg(request):
 
 def thewinner(request):
     del request.session['startvote']
-    # models.Restaurant.through.objects.all().delete()
     models.Restaurant.users_who_voted.through.objects.all().delete()
     msg=models.Message.objects.all()
     rest = models.Restaurant.objects.all()
@@ -54,12 +54,7 @@ def thewinner(request):
     }
     return render(request,'thewinner.html',context)
 
-def testwinner(request):    
-    context={
-        'the_winner_rest': models.get_the_winner_rest(),
-        "logged_user" : models.get_specific_user(request),
-    }
-    return render(request,'thewinner.html',context)
+
 
 def add_a_company(request):
     return render (request,'addcompanypage.html')
