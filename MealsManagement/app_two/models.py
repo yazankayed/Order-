@@ -80,4 +80,3 @@ def show_msg():
     return Message.objects.all().order_by("created_at")
 
 
-

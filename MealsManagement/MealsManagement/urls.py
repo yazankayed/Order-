@@ -22,8 +22,8 @@ from django.contrib import admin
 urlpatterns = [
     path('',include('app_one.urls')),
     path('',include('app_two.urls')),
-    # path('admin/', admin.site.urls),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.sirls),
     path('admin/clearcache/', include('clearcache.urls')),
+    path('admin/', admin.site.urls),
 
 ]
