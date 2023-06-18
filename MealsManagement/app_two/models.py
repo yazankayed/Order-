@@ -27,6 +27,11 @@ class Item(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     menue = models.ForeignKey(Menu, related_name="item", on_delete = models.CASCADE)
 
+class Message(models.Model):
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User , related_name="messages" , on_delete=models.DO_NOTHING)
 
 
 def get_specific_user(request):
@@ -63,4 +68,16 @@ def add_a_company(request):
 
 def add_a_rest(request):
     Restaurant.objects.create(name=request.POST['rest_name'],location=request.POST['rest_location'],telephone_number=request.POST['rest_telephone'],rest_logo=request.POST['logo_rest'])
+
+
+def create_message(request):
+    this_message = request.POST['post_message']
+    this_user = User.objects.get(id = request.session['userid'])
+    Message.objects.create(message = this_message ,   user = this_user)
+
+
+def show_msg():
+    return Message.objects.all().order_by("created_at")
+
+
 

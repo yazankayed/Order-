@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static '/css/voting.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>End Vote</title>
+    <title>Voting</title>
 </head>
 
 <body>
@@ -54,10 +54,21 @@
             <!-- Chat messages will be dynamically added here -->
         </div>
         <br>
-        <div id="chat-input">
-            <input type="text" id="message-input" placeholder="Type your message...">
-            <button id="send-button">Send</button>
-        </div>
+        <!-- <form action="/message" method="post" >
+            <input type="text" name="post_message">
+            <input type="hidden" name="catch_id" value="{{user.id}}">
+            <button type="submit">Add A Message</button>
+        </form> -->
+        <form action="/message" method="post">
+            {% csrf_token %}
+            <textarea name="post_message" cols="100" rows="5"></textarea><br><br>
+            
+            <button type="submit">Post a message</button>
+        </form>
+
+
+
+
     </div>
 
     </div>
@@ -87,9 +98,7 @@
 
     <script>
         $(document).ready(function () {
-            $('form').on('submit', function (event) {
-                event.preventDefault();
-            });
+
             $('button').on('click', function () {
                 var button = $(this);
                 var url = button.attr('href');

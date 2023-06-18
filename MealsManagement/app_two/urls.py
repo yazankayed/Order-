@@ -10,5 +10,6 @@ urlpatterns = [
     path('addacompany', views.addacompany),
     path('addarestpage', views.add_a_rest),
     path('addarest', views.addarest),
+    path ('message' , views.create_msg),
     
 ]
