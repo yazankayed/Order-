@@ -32,6 +32,9 @@ def submitvote(request,ic):
     models.voting(request,ic)
     return redirect('/voting')
 
+def contactus(request):
+    return render(request,'contactus.html')
+
 
 def create_msg(request):
     models.create_message(request)
