@@ -8,7 +8,7 @@ def home(request):
 def startvote(request):
     if 'userid' not in request.session:
         return redirect('/')
-    if 'startvote' not in request.session:
+    if 'startvote' in request.session:
         return redirect('/voting')
     else:
         context={

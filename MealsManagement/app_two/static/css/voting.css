@@ -44,6 +44,24 @@ body, html {
     width: 100px;
 }
 
+.img-mid img {
+    border-radius: 50%;
+    margin-left: -20px;
+    width: 130px;
+    height: 130px;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
 #chat-input{
     text-align: center;
 }
