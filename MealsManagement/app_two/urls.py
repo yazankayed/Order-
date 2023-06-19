@@ -12,5 +12,6 @@ urlpatterns = [
     path('addarest', views.addarest),
     path ('message' , views.create_msg),
     path('contactus', views.contactus),
+    path('rest/<int:id>', views.restdet),
     
 ]

@@ -40,8 +40,8 @@ def get_specific_user(request):
 def show_all_resturants():
     return Restaurant.objects.all()
 
-def show_specific_restaurant(ic):
-    return Restaurant.objects.get(id=ic)
+def show_specific_restaurant(id):
+    return Restaurant.objects.get(id=id)
 
 def show_specific_company(num):
     return Company.objects.get(id=num)

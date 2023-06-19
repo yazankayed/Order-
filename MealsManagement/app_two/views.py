@@ -63,7 +63,11 @@ def thewinner(request):
     # b.users_who_voted.aclear()
         return render(request,'thewinner.html',context)
 
-
+def restdet(request,id):
+    context={
+        'rest':models.show_specific_restaurant(id)
+    }
+    return render(request,'restdet.html',context)
 
 
 
