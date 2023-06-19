@@ -38,3 +38,11 @@ def login(request):
 def logout(request):
     del request.session['userid']
     return redirect('/')
+
+def complain(request):  
+    return render(request,'complian.html')
+
+def savecomplian(request):
+    models.create_complain(request)
+    return redirect('/complian')
+
