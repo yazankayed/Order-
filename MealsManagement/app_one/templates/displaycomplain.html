@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaints List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/displaycomplain.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZ6SvL8X6U/5O7w+I565w1Ml" crossorigin="anonymous">
+</head>
+<body>
+    <ol style="--length: 5" role="list">
+        {% for complaint in complaints %}
+            <li>
+                <h3>{{ complaint.fullname }}</h3>
+                <p id="email"> ({{ complaint.email }})</p>                
+                <p>{{ complaint.submitcomplain }}</p>
+            </li>
+        {% endfor %}
+    </ol>
+    <img src="{% static 'imgs/logo.png' %}" alt="logo" class="logo">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js" integrity="sha384-7gJkz9+Uvo2YtLm1NlSjkzY3ZwDcxZVpJkqxXjv/4+IhLrD0H/km6zZvV9U2X0w" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-8cyK3OyBJMVF+p4yDwh2tTqWYzzVoPpG2z6XHlV9bZZqbbaGyYrXz9u3P0vIvJj/" crossorigin="anonymous"></script>
+</body>
+</html>

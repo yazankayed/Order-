@@ -44,5 +44,10 @@ def complain(request):
 
 def savecomplian(request):
     models.create_complain(request)
-    return redirect('/complian')
+    return redirect('/displaycomplain')
 
+def displaycomplain(request):
+    data = {
+        'complaints': models.Complain.objects.all(),
+    }
+    return render(request, 'displaycomplain.html', data)
