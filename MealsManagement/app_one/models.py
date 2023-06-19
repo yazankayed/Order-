@@ -68,7 +68,7 @@ def login(request):
         request.session['userid'] = logged_user.id
 
 def create_complain(request):
-    full = request.POST['fullname']
-    em = request.POST['email']
-    complain = request.POST['submitcomplian']
+    full=request.POST['fullname']
+    em=request.POST['email']
+    complain=request.POST['submitcomplian']
     Complain.objects.create(fullname=full,email= em,submitcomplain=complain)
