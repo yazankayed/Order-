@@ -1,0 +1,114 @@
+*{
+
+}
+.navbar{
+    background-color: gray;
+}
+.container{
+    width: 100%;
+    background-image: url('/static/imgs/bakground.png');
+    height: 500px;
+}
+.create{
+    margin-bottom: 25px;
+    font-family: Arial Rounded MT Bold;
+}
+
+.logo{
+    width: 14%;
+    margin: auto;
+}
+
+.under{
+    text-align: center;
+}
+
+.fname{
+    font-family: Arial Rounded MT Bold;
+}
+.lfname{
+    margin-left: 25px;
+    background-color: #ff7300;
+    border: none;
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #384146;
+
+}
+.lname{
+    font-family: Arial Rounded MT Bold;
+}
+.llname{
+    margin-left: 25px;
+    background-color: #ff7300;
+    border: none;
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #384146;
+}
+.email{
+    font-family: Arial Rounded MT Bold;
+}
+.lemail{
+    margin-left: 65px;
+    background-color: #ff7300;
+    border: none;
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #384146;
+}
+.pass , .conf-pass{
+    font-family: Arial Rounded MT Bold;
+
+}
+.lpass{
+    margin-left: 35px;
+    background-color: #ff7300;
+    border: none;
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #384146;
+}
+.comp{
+    font-family: Arial Rounded MT Bold;
+}
+.lcpass{
+    background-color: #ff7300;
+    border: none;
+    flex: 1;
+    font-size: 19px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: #384146;
+}
+
+.btn-secondary{
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    font-family: Tamil MN;
+    margin-top: 20px;
+}
+.compa{
+    margin-left: 35px;
+    background-color: #384146;
+    font-size: 16px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.ur-company{
+    margin-right: 60px;
+}

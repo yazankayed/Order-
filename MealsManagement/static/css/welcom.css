@@ -1,6 +1,6 @@
 body{
-    background-color: brown;
-background-image: url('imgs//loginbackground.png');
+    /* background-color: brown; */
+background-image: url('/static/imgs/loginbackground.png');
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;
