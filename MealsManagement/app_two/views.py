@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from . import models
+from django.http import JsonResponse
+
 
 # Create your views here.
 def home(request):
@@ -84,3 +86,26 @@ def add_a_rest(request):
 def addarest(request):
     models.add_a_rest(request)
     return redirect('/addarestpage')
+
+def Serach_Request(request):
+    if request.is_ajax():
+        restaurant = request.POST.get('restaurant')
+        query = models.Restaurant.objects.filter(name__icontains=restaurant)
+        if len(query) > 0 :
+            data = [] 
+            for position in query:
+                Items = {
+                    "PRIMARY_KEY" :position.pk,
+                    "name" : position.name,
+                    "phone" : position.telephone_number,
+                    "location" : position.location,
+                    "image_logo":position.rest_logo
+                    
+                }
+                data.append(Items)
+            res = data
+        else:
+            res = 'NO Resturent Found....'
+                
+        return JsonResponse({'data': res })
+    return JsonResponse({})
