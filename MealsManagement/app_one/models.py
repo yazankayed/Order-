@@ -65,7 +65,7 @@ def login(request):
         logged_user = user.email
     
     if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
-        request.sessuion['userid'] = logged_user.id
+        request.session['userid'] = logged_user.id
 
 def create_complain(request):
     full = request.POST['fullname']

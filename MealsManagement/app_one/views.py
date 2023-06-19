@@ -13,7 +13,7 @@ def register_page(request):
         "company_name" : models.show_companies(),
         
     }
-    return render(request,'register_page.html',context)
+    return render(request,'reg.html',context)
 
 def register(request):
     errors = User.objects.basic_validator(request.POST)
@@ -32,8 +32,8 @@ def login(request):
     
         if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
             request.session['userid'] = logged_user.id
-            return redirect('/home')
-    return redirect('/login_page')
+            return redirect('/startvote')
+    return redirect('/startvote')
 
 def logout(request):
     del request.session['userid']
