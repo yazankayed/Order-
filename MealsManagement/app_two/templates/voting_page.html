@@ -5,14 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/voting.css' %}">
+    
+    <script src="{%  static 'js/main.js' %}" defer></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Voting</title>
 </head>
 
 <body>
+    {% block content %}
+    {% endblock content %}
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    {% block javascript %}
+    {% endblock javascript %}
     <div class="container">
         <div class="nav-top">
             <div class="nav">
@@ -20,6 +31,15 @@
                     <img class="logo" src='{% static "imgs/logo.png" %}' alt="logo">
                 </a>
             </div>
+            <div class="search-container">
+                <form id="search-form" action="/action_page.php">
+                  {% csrf_token %}
+                  <input type="text" id="search-input" placeholder="Search.." name="search">
+                </form>
+                <div id="result-serach" class="result-card hidden-visible">
+                
+                </div>
+              </div>
             <div class="right">
                 <div class="d-grid gap-2 d-md-block">
                     <a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a>

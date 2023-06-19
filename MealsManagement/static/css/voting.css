@@ -65,3 +65,53 @@ body, html {
 #chat-input{
     text-align: center;
 }
+
+
+
+.hidden-visible {
+    display: none;
+   }
+
+.search-container {
+    margin-top: 32px;
+    position: relative;
+  display: inline-block;
+}
+
+  .search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 25px 40px rgb(191, 12, 12);
+  }
+
+  .result-card {
+    z-index: 1;
+    /* width: 500px; */
+  position: absolute;
+    background: #f7f5f5;
+    width: 285px;
+    max-width: 300px;
+    margin-top: 5px;
+    max-height: 800px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px rgb(215, 147, 147);
+}  
+.imageCategory {
+    margin: 10px;
+    width: 260px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.namewithPhone {
+    color: rgb(120, 0, 0);
+    font-size: small;
+    font-weight: bold;
+    margin-left: 20px;
+}
+

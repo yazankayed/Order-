@@ -13,5 +13,6 @@ urlpatterns = [
     path ('message' , views.create_msg),
     path('contactus', views.contactus),
     path('rest/<int:id>', views.restdet),
+    path ('search/' , views.Serach_Request), 
     
 ]
