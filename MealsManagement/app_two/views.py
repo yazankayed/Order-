@@ -67,7 +67,8 @@ def thewinner(request):
 
 def restdet(request,id):
     context={
-        'rest':models.show_specific_restaurant(id)
+        'rest':models.show_specific_restaurant(id),
+        "logged_user" : models.get_specific_user(request),
     }
     return render(request,'restdet.html',context)
 
@@ -112,4 +113,6 @@ def Serach_Request(request):
     return JsonResponse({})
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'contactus.html')
+def about(request):
+    return render(request,'about.html')

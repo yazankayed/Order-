@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resturant Details</title>
 </head>
-<body>
-    <h1>Resturant:{{rest.name}}</h1>
-    <a href="/">
-        <img src="{{rest.rest_logo}}" alt="placeholder">
 
-    </a>
-    <table>
-        <tr>
-          <th>Item Name</th>
-          <th>Category</th>
-          <th>Price</th>
-        </tr>
-        
-        
-        {% for i in rest.menu.item.all %}
-        <tr>
-            <td> {{i.name}} </td>
-            <td> {{i.category}} </td>
-            
-         <td>{{i.price}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<body>
+    <div style="display: flex; justify-content: space-evenly; align-items: center; padding: 20px; background-color: #E28B46;">
+        <div>
+            <a href="/"><img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo" width="100px"></a>
+        </div>
+        <div>
+            <img src="{{logged_user.company.company_logo}}" alt="company logo" width="70px" style="border-radius: 50%;">
+        </div>
+        <div><a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a></div>
+
+    </div>
+    <br><br><br><br>
+    <div style="margin: 0px 400px;">
+        <div style="margin: 0px 90px; text-align: center;">
+            <h3>Resturant:{{rest.name}}</h3>
+            <img src="{{rest.rest_logo}}" alt="placeholder" width="100px" style="border-radius: 50%;"> 
+        </div>
+        <table style="border: 1px solid black;">
+            <tr>
+                <th style="border: 1px solid black;">Item Name</th>
+                <th style="border: 1px solid black;">Category</th>
+                <th style="border: 1px solid black;">Price</th>
+            </tr>
+
+
+            {% for i in rest.menu.item.all %}
+            <tr>
+                <td style="border: 1px solid black;"> {{i.name}} </td>
+                <td style="border: 1px solid black;"> {{i.category}} </td>
+
+                <td style="border: 1px solid black;">{{i.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
+
 </html>

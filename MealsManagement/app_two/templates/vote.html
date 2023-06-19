@@ -12,10 +12,19 @@
 </head>
 
 <body>
-    <a href="/">
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
 
-        <img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo">
-    </a>
+            <a href="/"><img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo"></a>
+        </div>
+        <div>
+            <img src="{{logged_user.company.company_logo}}" alt="company logo">
+        </div>
+        <div>
+            <a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+        </div>
+    </div>
+
     <div class="container">
         <h1>Start voting for restaurants</h1>
         <div class="img-container">
@@ -43,5 +52,4 @@
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
     }
-    
 </style>

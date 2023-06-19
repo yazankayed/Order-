@@ -15,14 +15,19 @@
 <body>
     <div class="container">
         <div class="nav-top">
-            <div class="nav">
-                <a class="navbar-brand" href="/">
-                    <img class="logo" src='{% static "imgs/logo.png" %}' alt="logo">
-                </a>
+            <div style="display: flex; justify-content: space-evenly; align-items: center; padding: 20px; background-color: #E28B46;">
+                <div>
+                    <a href="/"><img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo" width="100px"></a>
+                </div>
+                <div>
+                    <img src="{{logged_user.company.company_logo}}" alt="company logo" width="70px" style="border-radius: 50%;">
+                </div>
+                <div><a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a></div>
+        
             </div>
             <div class="right">
                 <div class="d-grid gap-2 d-md-block">
-                    <a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+                    
                     
                 </div>
             </div>
