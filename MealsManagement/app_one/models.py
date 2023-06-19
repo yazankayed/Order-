@@ -40,6 +40,12 @@ class User(models.Model):
 
 
 
+class Complain(models.Model):
+    fullname=models.CharField(max_length=60)
+    email = models.CharField(max_length=45)
+    submitcomplain=models.CharField(max_length=250)
+    
+
 def show_companies():
     return Company.objects.all()
 
@@ -61,3 +67,8 @@ def login(request):
     if bcrypt.checkpw(request.POST['password_email'].encode(), logged_user.password.encode()):
         request.session['userid'] = logged_user.id
 
+def create_complain(request):
+    full = request.POST['fullname']
+    em = request.POST['email']
+    complain = request.POST['submitcomplian']
+    Complain.objects.create(fullname=full,email= em,submitcomplain=complain)
