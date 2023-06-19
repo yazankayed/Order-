@@ -82,3 +82,8 @@ body, html {
 .about-us{
     color: white;
 }
+
+#map {
+    height: 80%;
+    margin-top: 20px;
+}
