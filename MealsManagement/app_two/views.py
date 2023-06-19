@@ -110,3 +110,6 @@ def Serach_Request(request):
                 
         return JsonResponse({'data': res })
     return JsonResponse({})
+
+def contact(request):
+    return render(request,'contact.html')
