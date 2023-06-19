@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from . import models
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpRequest
 
 
 # Create your views here.
@@ -88,7 +88,8 @@ def addarest(request):
     return redirect('/addarestpage')
 
 def Serach_Request(request):
-    if request.is_ajax():
+    
+    if request:
         restaurant = request.POST.get('restaurant')
         query = models.Restaurant.objects.filter(name__icontains=restaurant)
         if len(query) > 0 :
