@@ -242,9 +242,10 @@
         <br>
         <h1 style="color: #fff;">Food Fight just started!!</h1>
         <div style="background-color:rgb(122,128,140); opacity: 50%; width: 1110px;height: 300px; border-radius: 5px; ">
+            <br><br>
             {% for message in msg %}
-            <p style="display: inline;"> {{message.user.first_name}} : </p>
-            <p style="display: inline;">{{message.message}}</p>
+            <p class="alert alert-warning"   style="display: inline;"> {{message.user.first_name}} : </p>
+            <p class="alert alert-warning"  style="display: inline; ;">{{message.message}}</p>
             <br>
             {% endfor %}
         </div>
