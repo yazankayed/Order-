@@ -5,8 +5,163 @@
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/displaycomplain.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZ6SvL8X6U/5O7w+I565w1Ml" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/thewinner.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"><link rel="stylesheet" href="./style.css">
+
+
+    <style>
+        .navbar-brand img {
+            width: 80px;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+            padding: 0.5em 1em;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+            }
+
+            .navbar-brand {
+                margin-right: 0;
+                padding: 0 1em;
+            }
+        }
+
+        .footimage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+            width: 80%;
+        }
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 1px solid #8b9199;
+            color: #8b9199;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 7px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        section,
+        footer {
+            background: #1A1E25;
+            color: #868c96;
+        }
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 44px;
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand d-md-none" href="/">
+                <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li style="box-shadow: none; background-color: rgb(108,117,125);" class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/complain">Complain</a>
+                    </li>
+                    <li class="nav-item" style="box-shadow: none; background-color: rgb(108,117,125);">
+                        <a class="nav-link" href="/about">About us</a>
+                    </li>
+                    <a class="navbar-brand d-none d-md-block" href="/">
+                        <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="">
+                    </a>
+                    <li class="nav-item" style="box-shadow: none; background-color: rgb(108,117,125);">
+                        <a class="nav-link" href="/contactus">Contact us</a>
+                    </li>
+                    <li class="nav-item" style="box-shadow: none; background-color: rgb(108,117,125);">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <ol style="--length: 5" role="list">
         {% for complaint in complaints %}
             <li>
@@ -16,7 +171,30 @@
             </li>
         {% endfor %}
     </ol>
-    <img src="{% static 'imgs/logo.png' %}" alt="logo" class="logo">
+
+
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <a href="#"><img class="footimage" src="{% static '/imgs/logo.png' %}" alt="logo"></a>
+                        
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js" integrity="sha384-7gJkz9+Uvo2YtLm1NlSjkzY3ZwDcxZVpJkqxXjv/4+IhLrD0H/km6zZvV9U2X0w" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-8cyK3OyBJMVF+p4yDwh2tTqWYzzVoPpG2z6XHlV9bZZqbbaGyYrXz9u3P0vIvJj/" crossorigin="anonymous"></script>

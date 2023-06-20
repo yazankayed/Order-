@@ -1,214 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>complain</title>
-    {% load static %}
-    <link rel="stylesheet" href="../static/complian.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" href="../static/complian.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/thewinner.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"><link rel="stylesheet" href="./style.css">
 
 
-
-    <style>@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-        html{    background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
-          background-size: cover;
-          height:100%;
+    <style>
+        .navbar-brand img {
+            width: 80px;
         }
-        
-        #feedback-page{
-            text-align:center;
+
+        .navbar-nav {
+            align-items: center;
         }
-        
-        #form-main{
-            width:100%;
-            float:left;
-            padding-top:0px;
+
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+            padding: 0.5em 1em;
         }
-        
-        #form-div {
-            background-color:rgba(72,72,72,0.4);
-            padding-left:35px;
-            padding-right:35px;
-            padding-top:35px;
-            padding-bottom:50px;
-            width: 450px;
-            float: left;
+
+        @media screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+            }
+
+            .navbar-brand {
+                margin-right: 0;
+                padding: 0 1em;
+            }
+        }
+
+        .footimage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
             left: 50%;
             position: absolute;
-          margin-top:30px;
-            margin-left: -260px;
-          -moz-border-radius: 7px;
-          -webkit-border-radius: 7px;
+            transform: translate(-50%);
+            width: 80%;
         }
-        
-        .feedback-input {
-            color:#3c3c3c;
-            font-family: Helvetica, Arial, sans-serif;
-          font-weight:500;
-            font-size: 18px;
-            border-radius: 0;
-            line-height: 22px;
-            background-color: #fbfbfb;
-            padding: 13px 13px 13px 54px;
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
             margin-bottom: 10px;
-            width:100%;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -ms-box-sizing: border-box;
-            box-sizing: border-box;
-          border: 3px solid rgba(0,0,0,0);
         }
-        
-        .feedback-input:focus{
-            background: #fff;
-            box-shadow: 0;
-            border: 3px solid #3498db;
-            color: #3498db;
-            outline: none;
-          padding: 13px 13px 13px 54px;
-        }
-        
-        .focused{
-            color:#30aed6;
-            border:#30aed6 solid 3px;
-        }
-        
-        /* Icons ---------------------------------- */
-        #name{
-            background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
-            background-size: 30px 30px;
-            background-position: 11px 8px;
-            background-repeat: no-repeat;
-        }
-        
-        #name:focus{
-            background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
-            background-size: 30px 30px;
-            background-position: 8px 5px;
-          background-position: 11px 8px;
-            background-repeat: no-repeat;
-        }
-        
-        #email{
-            background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
-            background-size: 30px 30px;
-            background-position: 11px 8px;
-            background-repeat: no-repeat;
-        }
-        
-        #email:focus{
-            background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
-            background-size: 30px 30px;
-          background-position: 11px 8px;
-            background-repeat: no-repeat;
-        }
-        
-        #comment{
-            background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
-            background-size: 30px 30px;
-            background-position: 11px 8px;
-            background-repeat: no-repeat;
-        }
-        
-        textarea {
-            width: 100%;
-            height: 150px;
-            line-height: 150%;
-            resize:vertical;
-        }
-        
-        input:hover, textarea:hover,
-        input:focus, textarea:focus {
-            background-color:white;
-        }
-        
-        #button-blue{
-            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-            float:left;
-            width: 100%;
-            border: #fbfbfb solid 4px;
-            cursor:pointer;
-            background-color: #3498db;
-            color:white;
-            font-size:24px;
-            padding-top:22px;
-            padding-bottom:22px;
-            -webkit-transition: all 0.3s;
-            -moz-transition: all 0.3s;
-            transition: all 0.3s;
-          margin-top:-4px;
-          font-weight:700;
-        }
-        
-        #button-blue:hover{
-            background-color: rgba(0,0,0,0);
-            color: #0493bd;
-        }
-            
-        .submit:hover {
-            color: #3498db;
-        }
-            
-        .ease {
-            width: 0px;
-            height: 74px;
-            background-color: #fbfbfb;
-            -webkit-transition: .3s ease;
-            -moz-transition: .3s ease;
-            -o-transition: .3s ease;
-            -ms-transition: .3s ease;
-            transition: .3s ease;
-        }
-        
-        .submit:hover .ease{
-          width:100%;
-          background-color:white;
-        }
-        
-        @media only screen and (max-width: 580px) {
-            #form-div{
-                left: 3%;
-                margin-right: 3%;
-                width: 88%;
-                margin-left: 0;
-                padding-left: 3%;
-                padding-right: 3%;
-            }
-        }</style>
 
-    <div id="form-main">
-        <div id="form-div">
-          <form class="form"  action="/savecomplain" method="post">
-         <!-- <form action="" method="post"></form> -->
-         {% csrf_token %}
-            <p class="name">
-              <input name="fullname"  type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
-            </p>
-            
-            <p class="email">
-              <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
-            </p>
-            
-            <p class="text">
-              <textarea name="submitcomplian" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
-            </p>
-            
-            
-            <div class="submit">
-              <input type="submit"  id="button-blue"/>
-              <div class="ease"></div>
-            </div>
-          </form>
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 1px solid #8b9199;
+            color: #8b9199;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 7px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        section,
+        footer {
+            background: #1A1E25;
+            color: #868c96;
+        }
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 44px;
+        }
+    </style>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+    html {
+      background: url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
+      background-size: cover;
+      height: 100%;
+    }
+
+    #feedback-page {
+      text-align: center;
+    }
+
+    #form-main {
+      width: 100%;
+      float: left;
+      padding-top: 0px;
+    }
+
+    #form-div {
+      background-color: rgba(72, 72, 72, 0.4);
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-top: 35px;
+      padding-bottom: 50px;
+      width: 450px;
+      float: left;
+      left: 50%;
+      position: absolute;
+      margin-top: 30px;
+      margin-left: -260px;
+      -moz-border-radius: 7px;
+      -webkit-border-radius: 7px;
+    }
+
+    .feedback-input {
+      color: #3c3c3c;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 0;
+      line-height: 22px;
+      background-color: #fbfbfb;
+      padding: 13px 13px 13px 54px;
+      margin-bottom: 10px;
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 3px solid rgba(0, 0, 0, 0);
+    }
+
+    .feedback-input:focus {
+      background: #fff;
+      box-shadow: 0;
+      border: 3px solid #3498db;
+      color: #3498db;
+      outline: none;
+      padding: 13px 13px 13px 54px;
+    }
+
+    .focused {
+      color: #30aed6;
+      border: #30aed6 solid 3px;
+    }
+
+    /* Icons ---------------------------------- */
+    #name {
+      background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+      background-size: 30px 30px;
+      background-position: 11px 8px;
+      background-repeat: no-repeat;
+    }
+
+    #name:focus {
+      background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+      background-size: 30px 30px;
+      background-position: 8px 5px;
+      background-position: 11px 8px;
+      background-repeat: no-repeat;
+    }
+
+    #email {
+      background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+      background-size: 30px 30px;
+      background-position: 11px 8px;
+      background-repeat: no-repeat;
+    }
+
+    #email:focus {
+      background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+      background-size: 30px 30px;
+      background-position: 11px 8px;
+      background-repeat: no-repeat;
+    }
+
+    #comment {
+      background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+      background-size: 30px 30px;
+      background-position: 11px 8px;
+      background-repeat: no-repeat;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      line-height: 150%;
+      resize: vertical;
+    }
+
+    input:hover,
+    textarea:hover,
+    input:focus,
+    textarea:focus {
+      background-color: white;
+    }
+
+    #button-blue {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      float: left;
+      width: 100%;
+      border: #fbfbfb solid 4px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      font-size: 24px;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+      margin-top: -4px;
+      font-weight: 700;
+    }
+
+    #button-blue:hover {
+      background-color: rgba(0, 0, 0, 0);
+      color: #0493bd;
+    }
+
+    .submit:hover {
+      color: #3498db;
+    }
+
+    .ease {
+      width: 0px;
+      height: 74px;
+      background-color: #fbfbfb;
+      -webkit-transition: .3s ease;
+      -moz-transition: .3s ease;
+      -o-transition: .3s ease;
+      -ms-transition: .3s ease;
+      transition: .3s ease;
+    }
+
+    .submit:hover .ease {
+      width: 100%;
+      background-color: white;
+    }
+
+    @media only screen and (max-width: 580px) {
+      #form-div {
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+    }
+  </style>
+  <title>Complain</title>
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand d-md-none" href="/">
+            <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/complain">Complain</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About us</a>
+                </li>
+                <a class="navbar-brand d-none d-md-block" href="/">
+                    <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="">
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contactus">Contact us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+            </ul>
         </div>
+    </div>
+</nav>
 
 
+  <div id="form-main">
+    <div id="form-div">
+      <form class="form" action="/savecomplain" method="post">
+        <!-- <form action="" method="post"></form> -->
+        {% csrf_token %}
+        <p class="name">
+          <input name="fullname" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
+            placeholder="Name" id="name" />
+        </p>
+
+        <p class="email">
+          <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email"
+            placeholder="Email" />
+        </p>
+
+        <p class="text">
+          <textarea name="submitcomplian" class="validate[required,length[6,300]] feedback-input" id="comment"
+            placeholder="Comment"></textarea>
+        </p>
+
+
+        <div class="submit">
+          <input type="submit" id="button-blue" />
+          <div class="ease"></div>
+        </div>
+      </form>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
 </body>
+
 </html>
