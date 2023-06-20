@@ -18,6 +18,11 @@
 
 
     <style>
+        #map {
+            height: 80%;
+            margin-top: 20px;
+        }
+
         .navbar-brand img {
             width: 80px;
         }
@@ -177,6 +182,7 @@
             <div class="container">
                 <hr class="border border-danger border-2 opacity-50" style="border-color:#e58948!important;">
                 <h1 class="con-us" style="text-align: -webkit-center; font-family: Bangla MN;">Contact Us</h1>
+                <div id="map"></div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="text-center card-box">
@@ -275,6 +281,39 @@
                 </div>
             </div>
         </div>
+
+        <div style="width: 330px;margin-left: 660px;" class="col-lg-4">
+            <div class="text-center card-box">
+                <div class="member-card pt-2 pb-2"
+                    style="font-family: American Typewriter; height:308px; width: 82%; border-color: color(srgb 0.8894 0.5424 0.283); border-style: double;">
+                    <div class="thumb-lg member-thumb mx-auto"><img
+                            src='{% static "imgs/avatar.jpg" %}'
+                            class="rounded-circle img-thumbnail" alt="profile-image"></div> <br>
+                    <div class="">
+                        <h4>Oday Iseed</h4>
+                        <p class="text-muted">Highschool graduate
+                            <br><a href="#" class="text-pink"> Bireh School</a>
+                        </p>
+                    </div><br>
+                    <ul class="social-links list-inline">
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
+                                class="tooltips"
+                                href="https://api.whatsapp.com/send/?phone=%2B972568296015&text&type=phone_number&app_absent=0"
+                                data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
+                                class="tooltips" href="https://github.com/Mahmoud-Attieh"
+                                data-original-title="Github"><i class="fa fa-github"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
+                                class="tooltips"
+                                href="https://www.linkedin.com/in/mahmoud-attieh-035aa6192/"
+                                data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
+                                class="tooltips" href="m.attieh1@outlook.com" data-original-title="Email"><i
+                                    class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <section class="contact-area" id="contact">
             <div class="container">
                 <div class="row">
@@ -326,7 +365,7 @@
             }
 
             initMap();</script>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
 </body>
 
 </html>
