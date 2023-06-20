@@ -42,7 +42,7 @@ def logout(request):
 def complain(request):  
     return render(request,'complian.html')
 
-def savecomplian(request):
+def savecomplain(request):
     models.create_complain(request)
     return redirect('/displaycomplain')
 
