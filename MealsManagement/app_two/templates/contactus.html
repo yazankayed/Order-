@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,167 @@
     <link rel="stylesheet" href="{% static '/css/contact.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="{% static '/css/thewinner.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+
+
+    <style>
+        .navbar-brand img {
+            width: 80px;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+            padding: 0.5em 1em;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+            }
+
+            .navbar-brand {
+                margin-right: 0;
+                padding: 0 1em;
+            }
+        }
+
+        .footimage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+            width: 80%;
+        }
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 1px solid #8b9199;
+            color: #8b9199;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 7px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        section,
+        footer {
+            background: #1A1E25;
+            color: #868c96;
+        }
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 44px;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <title>Contact Us</title>
 </head>
-<body >
+
+<body>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="content">
-        <nav class="navbar navbar-light bg-light" style="border-radius: 2px; background-color: #e6e2d7!important;">
-            <a class="navbar-brand" href="#" style="align-items: end; display: flex;">
-                <img src='{% static "imgs/logo.png" %}' width="130" height="90" class="d-inline-block align-top" alt="">
-                <p style="font-size: 32px; font-family: American Typewriter;">Orderak</p>
-            </a>
-            <div class="right">
-                <div class="d-grid gap-2 d-md-block">
-                    <button type="button" class="btn btn-outline-secondary"
-                        style="margin: auto; color:black; font-family: American Typewriter; border-color: #e28a48">Logout</button>
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand d-md-none" href="/">
+                    <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/complain">Complain</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About us</a>
+                        </li>
+                        <a class="navbar-brand d-none d-md-block" href="/">
+                            <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="">
+                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactus">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -78,17 +224,19 @@
                                 </div>
                                 <ul class="social-links list-inline">
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="https://api.whatsapp.com/send/?phone=%2B33784327452&text&type=phone_number&app_absent=0" data-original-title="Whatsapp"><i
-                                                class="fa fa-whatsapp"></i></a></li>
+                                            class="tooltips"
+                                            href="https://api.whatsapp.com/send/?phone=%2B33784327452&text&type=phone_number&app_absent=0"
+                                            data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="https://github.com/MohamadDayem" data-original-title="Github"><i
-                                                class="fa fa-github"></i></a></li>
+                                            class="tooltips" href="https://github.com/MohamadDayem"
+                                            data-original-title="Github"><i class="fa fa-github"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
                                             class="tooltips" href="" data-original-title="Linkedin"><i
                                                 class="fa fa-linkedin"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="mohamad_dayem@yahoo.com" data-original-title="Email"><i
-                                                class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                                            class="tooltips" href="mohamad_dayem@yahoo.com"
+                                            data-original-title="Email"><i class="fa fa-envelope"
+                                                aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -108,14 +256,15 @@
                                 <br>
                                 <ul class="social-links list-inline">
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="https://api.whatsapp.com/send/?phone=%2B972599046414&text&type=phone_number&app_absent=0" data-original-title="Whatsapp"><i
-                                                class="fa fa-whatsapp"></i></a></li>
+                                            class="tooltips"
+                                            href="https://api.whatsapp.com/send/?phone=%2B972599046414&text&type=phone_number&app_absent=0"
+                                            data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="https://github.com/yazankayed" data-original-title="Github"><i
-                                                class="fa fa-github"></i></a></li>
+                                            class="tooltips" href="https://github.com/yazankayed"
+                                            data-original-title="Github"><i class="fa fa-github"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                            class="tooltips" href="https://www.linkedin.com/in/yazan-kayed-05215925b/" data-original-title="Linkedin"><i
-                                                class="fa fa-linkedin"></i></a></li>
+                                            class="tooltips" href="https://www.linkedin.com/in/yazan-kayed-05215925b/"
+                                            data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                                     <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
                                             class="tooltips" href="y.arefkayed@gmail.com" data-original-title="Email"><i
                                                 class="fa fa-envelope" aria-hidden="true"></i></a></li>
@@ -126,63 +275,58 @@
                 </div>
             </div>
         </div>
-        <footer style="background-color:#e28a48;text-align: -webkit-center;">
+        <section class="contact-area" id="contact">
             <div class="container">
-                <div class="row" style="font-family: American Typewriter; ">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <a class="text-light" href="#" style="color:black;">About Us</a>
-                    <div class="card" style="border:1px; border-color: color(srgb 0.2185 0.2547 0.2757); border-style: dotted; margin-top: 20px; width: 17rem; height: 180px; background-color: rgb(230, 226, 215);">
-                        <img src='{% static "imgs/logo.png" %}' class="card-img-top" alt="...">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="contact-content text-center">
+                            <a href="#"><img class="footimage" src="{% static '/imgs/logo.png' %}" alt="logo"></a>
+
+                            <div class="contact-social">
+                                <ul>
+                                    <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <a class="text-light" href="#" style="color:black;">Contact Us</a>
-                    <div class="con"  style="border-radius:3px; border:1px;border-color: color(srgb 0.2185 0.2547 0.2757); border-style: dotted; margin-top: 20px; width: 17rem; height: 180px; background-color: rgb(230, 226, 215);">
-                        <p style="margin-top: 16px;"> Ramallah, Palestine</p>
-                        <p>AXSOS AG</p>
-                        <p> +970 (2) 298 8350</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <a class="text-light" href="#" style="color:black;">Our Location</a>
-                    <div id="map"></div>
-                </div>
-                </div>
             </div>
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                <a class="text-light" href="#" style="font-family: American Typewriter; color:black;" >Orderak.com</a>
-            </div>
-        </footer>
-    </div>
-    <!-- prettier-ignore -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyCgjBfL8PNO8D3tPhi1N8o602Tq4lvpPWQ", v: "beta"});</script>
-    <script>// Initialize and add the map
-        let map;
-        
-        async function initMap() {
-          // The location of Uluru
-          const position = { lat: 31.926182, lng: 35.205615 };
-          // Request needed libraries.
-          //@ts-ignore
-          const { Map } = await google.maps.importLibrary("maps");
-          const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-        
-          // The map, centered at Uluru
-          map = new Map(document.getElementById("map"), {
-            zoom: 200,
-            center: position,
-            mapId: "DEMO_MAP_ID",
-          });
-        
-          // The marker, positioned at Uluru
-          const marker = new AdvancedMarkerElement({
-            map: map,
-            position: position,
-            title: "Uluru",
-          });
-        }
-        
-        initMap();</script>
+        </section>
+        <!-- prettier-ignore -->
+        <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+                ({ key: "AIzaSyCgjBfL8PNO8D3tPhi1N8o602Tq4lvpPWQ", v: "beta" });</script>
+        <script>// Initialize and add the map
+            let map;
+
+            async function initMap() {
+                // The location of Uluru
+                const position = { lat: 31.926182, lng: 35.205615 };
+                // Request needed libraries.
+                //@ts-ignore
+                const { Map } = await google.maps.importLibrary("maps");
+                const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+                // The map, centered at Uluru
+                map = new Map(document.getElementById("map"), {
+                    zoom: 200,
+                    center: position,
+                    mapId: "DEMO_MAP_ID",
+                });
+
+                // The marker, positioned at Uluru
+                const marker = new AdvancedMarkerElement({
+                    map: map,
+                    position: position,
+                    title: "Uluru",
+                });
+            }
+
+            initMap();</script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
 </body>
+
 </html>

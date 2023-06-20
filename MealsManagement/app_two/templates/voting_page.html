@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
@@ -8,69 +8,229 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/voting.css' %}">
-    
+
     <script src="{%  static 'js/main.js' %}" defer></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/thewinner.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+
+
+    <style>
+        .navbar-brand img {
+            width: 80px;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+            padding: 0.5em 1em;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+            }
+
+            .navbar-brand {
+                margin-right: 0;
+                padding: 0 1em;
+            }
+        }
+
+        .footimage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+            width: 80%;
+        }
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 1px solid #8b9199;
+            color: #8b9199;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 7px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        section,
+        footer {
+            background: #1A1E25;
+            color: #868c96;
+        }
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 44px;
+        }
+    </style>
     <title>Voting</title>
 </head>
 
-<body>
+<body style="">
     {% block content %}
     {% endblock content %}
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     {% block javascript %}
     {% endblock javascript %}
     <div class="container">
-        <div class="nav-top">
-            <div class="nav">
-                <a class="navbar-brand" href="/">
-                    <img class="logo" src='{% static "imgs/logo.png" %}' alt="logo">
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand d-md-none" href="/">
+                    <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="logo">
                 </a>
-            </div>
-            <div class="search-container">
-                <form id="search-form" action="/action_page.php">
-                  {% csrf_token %}
-                  <input type="text" id="search-input" placeholder="Search.." name="search">
-                </form>
-                <div id="result-serach" class="result-card hidden-visible">
-                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/complain">Complain</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About us</a>
+                        </li>
+                        <a class="navbar-brand d-none d-md-block" href="/">
+                            <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="">
+                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactus">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-            <div class="right">
-                <div class="d-grid gap-2 d-md-block">
-                    <a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+                <div class="search-container">
+                    <form id="search-form" action="/action_page.php">
+                        {% csrf_token %}
+                        <input type="text" id="search-input" placeholder="Search.." name="search">
+                    </form>
+                    <div id="result-serach" class="result-card hidden-visible">
+
+                    </div>
                 </div>
             </div>
+        </nav>
+
+        <div class="col-md-4 col-sm-6 mb-3" style="margin: 10px auto; ">
+            <a href="/thewinner">
+                <button class="btn btn-warning w-100">End Vote</button>
+            </a>
+
         </div>
-        <div class="mid">
-            <a href="/thewinner"><button type="button" class="btn btn-danger">End Vote</button></a>
-        </div>
+
+
+
+
+
         <hr class="border border-danger border-2 opacity-50">
         <div style="display: flex; justify-content: space-evenly;">
             {% for i in show_all_resturants %}
             <div>
-                <div style="margin-left: 20px; display: flex; justify-content: space-between; ">
-
-                    {% if logged_user in i.users_who_voted.all %}
+                
+                <div style=" display: flex; justify-content: space-evenly; align-items: center; vertical-align: middle; ">
+                {% if logged_user in i.users_who_voted.all %}
                     <br>
-                    <p>Already voted to that resturant</p>
+                
+                        <button style="width: 130px;" class="btn btn-success w-100">Success</button>
+                
                     {% else %}
-                    <a href="/submitvote/{{i.id}}"><button type="button" class="btn btn-success">Vote</button><br></a>
+                    <br>
+                    <a style="width: 130px;" href="/submitvote/{{i.id}}">
+                            <button style="width: 130px;" class="btn btn-primary w-100">Vote</button>
+                    </a>
                     {% endif %}
 
                 </div>
-
+<br>
                 <div class="img-mid">
                     <br>
-                    <img src=' {{i.rest_logo}} ' alt="stones" class="stones">
+                    <img style="margin: 0 auto;" src=' {{i.rest_logo}} ' alt="stones" class="stones">
+                    <br>
                 </div>
-
+<br>
                 <div style="display: flex; justify-content: space-between;">
-                    <button class="btn btn-danger">Voted: <span class="b"> {{i.votes}} </span></button>
+                    <button style="width: 130px;" class="btn btn-danger">Voted: <span class="b"> {{i.votes}} </span></button>
                 </div>
             </div>
             {% endfor %} <!--conter for users voted-->
@@ -80,7 +240,8 @@
             <!-- Chat messages will be dynamically added here -->
         </div>
         <br>
-        <div style="background-color: brown; width: 778.22px;height: 300px;">
+        <h1 style="color: #fff;">Food Fight just started!!</h1>
+        <div style="background-color:rgb(122,128,140); opacity: 50%; width: 1110px;height: 300px; border-radius: 5px; ">
             {% for message in msg %}
             <p style="display: inline;"> {{message.user.first_name}} : </p>
             <p style="display: inline;">{{message.message}}</p>
@@ -89,13 +250,33 @@
         </div>
         <form action="/message" method="post">
             {% csrf_token %}
-            <textarea name="post_message" cols="100" rows="2"></textarea><br><br>
+            <textarea style="width: 1110px;" name="post_message" cols="100" rows="2" placeholder="Give your opinion"></textarea>
+            <button type="submit" class="btn btn-warning w-100">Post a message</button>
             
-            <button type="submit">Post a message</button>
         </form>
 
 
+        <section class="contact-area" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="contact-content text-center">
+                            <a href="#"><img class="footimage" src="{% static '/imgs/logo.png' %}" alt="logo"></a>
 
+                            <div class="contact-social">
+                                <ul>
+                                    <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </div>
 
@@ -143,6 +324,7 @@
             });
         });
     </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
 </body>
 
 </html>

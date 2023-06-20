@@ -9,88 +9,276 @@
     <link rel="stylesheet" href="{% static '/css/thewinner.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"><link rel="stylesheet" href="./style.css">
+
+
+    <style>
+        h1{
+            font-size:30px;
+        }
+        /*Table Style One*/
+        .table .table-header{
+            background:rgb(227,138,72);
+            color:#333;
+        }
+        .table .table-header .cell{
+            padding:20px;
+        }
+        @media screen and (max-width: 640px){
+            table {
+                overflow-x: auto;
+                display: block;
+            }
+            .table .table-header .cell{
+                padding:20px 5px;
+            }
+        }
+        .navbar-brand img {
+            width: 80px;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1em;
+            padding: 0.5em 1em;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-brand img {
+                width: 100px;
+            }
+
+            .navbar-brand {
+                margin-right: 0;
+                padding: 0 1em;
+            }
+        }
+
+        .footimage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+            width: 80%;
+        }
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 1px solid #8b9199;
+            color: #8b9199;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 7px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        section,
+        footer {
+            background: #1A1E25;
+            color: #868c96;
+        }
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 44px;
+        }
+    </style>
+
     <title>The Winner</title>
 </head>
 
+
+
+
+
+
+
 <body>
     <div class="container">
-        <div class="nav-top">
-            <div style="display: flex; justify-content: space-evenly; align-items: center; padding: 20px; background-color: #E28B46;">
-                <div>
-                    <a href="/"><img class="orderklogo" src="{% static '/imgs/logo.png' %}" alt="orderklogo" width="100px"></a>
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand d-md-none" href="/">
+                    <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/complain">Complain</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About us</a>
+                        </li>
+                        <a class="navbar-brand d-none d-md-block" href="/">
+                            <img style="width : 150px;height: 100px;" src="{% static '/imgs/logo.png' %}" alt="">
+                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactus">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <img src="{{logged_user.company.company_logo}}" alt="company logo" width="70px" style="border-radius: 50%;">
-                </div>
-                <div><a href="/logout"><button type="button" class="btn btn-outline-danger">Logout</button></a></div>
+            </div>
+        </nav>
         
-            </div>
-            <div class="right">
-                <div class="d-grid gap-2 d-md-block">
-                    
-                    
-                </div>
-            </div>
-        </div>
         <hr class="border border-danger border-2 opacity-50">
         <br>
-        <h3 class="winner">The Winner</h3>
-        <br>
-
-        <img class="img-res-winner" src='{{the_winner_rest.rest_logo}}' alt="res" style="width: 25%;"><br>
-        <br>
-        <table>
-            <tr>
-              <th>Item Name</th>
-              <th>Category</th>
-              <th>Price</th>
-            </tr>
-            
-            
-            {% for i in the_winner_rest.menu.item.all %}
-            <tr>
-                <td> {{i.name}} </td>
-                <td> {{i.category}} </td>
+        <div style="display: flex; justify-content: space-evenly;">
+            <div style="flex: 2;">
                 
-             <td>{{i.price}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        <div class="card" style="width: 20%; ">
-            <h5 class="card-title">Submit by WhatsApp
-                <link rel="stylesheet"
-                    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><a
-                    href="https://api.whatsapp.com/send/?phone=%2B972568296015&text&type=phone_number&app_absent=0"
-                    class="float" target="_blank"><i class="fa fa-whatsapp my-float"></i></a>
-            </h5>
+                <h3 class="winner" style="background-color: rgb(227,138,72); margin-left: 50px; width: 40%; padding: 10px; border-radius: 5px;">The Winner</h3>
+                <br>
+                
+                <img class="img-res-winner" src='{{the_winner_rest.rest_logo}}' alt="res" style="width: 60%;"><br>
+                <br>
+                <div  style="width: 50%; ">
+                    
+                    <a href="https://api.whatsapp.com/send/?phone=%2B972568296015&text&type=phone_number&app_absent=0">
+
+                        <img src="{% static '/imgs/whatsapp.png' %}" alt="whatsppicon" style="width: 50%; border-radius: 10px; border: none; margin-left: 82px;">
+                    </a>
+                    
+                </div>
+            </div>
+            <div style="flex: 3;">
+
+                
+                <table class="table">
+                    <tr class="table-header">
+                        <th class="cell">Item Name</th>
+                        <th class="cell">Category</th>
+                        <th class="cell">Price</th>
+                        
+                    </tr>
+                    {% for i in the_winner_rest.menu.item.all %}
+                    <tr  class="active">
+                        <td>{{i.name}}</td>
+                        <td>{{i.category}}</td>
+                        <td>{{i.price}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+                
+            </div>
+            
         </div>
+
+
         <br>
         <!----Footer-->
-        
+
 
     </div>
-    <footer style="background-color: #384146;">
-        <div class="container p-4">
-            <div class="row" style="font-family: American Typewriter; justify-content: space-evenly; display: flex;">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <a class="text-light" href="#" style="color:white;">About Us</a>
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <a href="#"><img class="footimage" src="{% static '/imgs/logo.png' %}" alt="logo"></a>
+                        
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <a class="text-light" href="#" style="color:white;">Contact Us</a>
-            </div>
-            </div>
-            
         </div>
-        
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            <a class="text-light" href="#" style="font-family: American Typewriter; color:white;" >Orderak.com</a>
-        </div>
+    </section>
+    <!-- =============== 1.9 Contact Area End ====================-->
+    <!-- =============== 1.9 Footer Area Start ====================-->
+    <footer>
+        <p>Copyright &copy; 2023 All Rights Reserved.</p>
     </footer>
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -100,7 +288,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    
-    </body>
-    
-    </html>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
+</body>
+
+</html>
